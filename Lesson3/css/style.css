@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+caption,
+th,
+td {
+  border: 1px solid #000;
+  text-align: center;
+  padding: 5px;
+}
+
+caption {
+  border-bottom: none;
+  font-weight: bold;
+}
+
+thead {
+  font-weight: bold;
+}
+
+.text-red {
+    color: red;
+}
