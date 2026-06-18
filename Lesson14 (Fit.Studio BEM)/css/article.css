@@ -1,0 +1,130 @@
+.article {
+  padding-top: 80px;
+  margin-bottom: 120px;
+}
+
+.article__mb-1 {
+  margin-bottom: 80px;
+}
+
+.article__text {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #535755;
+}
+
+.article__decor-wrapper {
+  position: relative;
+}
+
+.article__decor-wrapper-1::before {
+  top: 100px;
+  left: 0;
+}
+
+.article__title-middle {
+  font-size: 36px;
+}
+
+.article__list {
+  margin-top: 0;
+  padding-left: 18px;
+}
+
+.article__item {
+  margin-bottom: 12px;
+}
+
+.article__item::marker {
+  color: #3596ed;
+  font-size: 22px;
+}
+
+.article__decor-wrapper-2::before {
+  right: 0;
+  bottom: 136px;
+}
+
+.article__mb-2 {
+  margin-bottom: 40px;
+}
+
+.article__play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background-color: #3596ed;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.article__play-button:hover {
+  background-color: #38a2ff;
+}
+
+.article__play-button:not(:disabled):active {
+  background-color: #2db2cd;
+}
+
+@media (width <= 768px) {
+  .article__decor-wrapper::before {
+    display: none;
+  }
+
+  .article__title-middle {
+    font-size: 32px;
+  }
+
+  .article__mb-1 {
+    margin-bottom: 60px;
+  }
+}
+
+@media (width <= 576px) {
+  .article {
+    padding-top: 60px;
+    /* padding-bottom: 80px; */
+  }
+
+  .article__title-middle {
+    font-style: 28px;
+  }
+
+  .article__mb-1 {
+    margin-bottom: 40px;
+  }
+
+  .article__mb-2 {
+    margin-bottom: 30px;
+  }
+
+  .article__play-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .article__play-button-img {
+    width: 18px;
+    height: 18px;
+  }
+}
