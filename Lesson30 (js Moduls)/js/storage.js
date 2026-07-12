@@ -1,0 +1,5 @@
+export const getTodosFromLocalStorage = () =>
+  JSON.parse(localStorage.getItem("todos"));
+
+export const setTodosToLocalStorage = (todos) =>
+  localStorage.setItem("todos", JSON.stringify(todos));
