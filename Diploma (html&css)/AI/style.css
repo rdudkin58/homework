@@ -1,0 +1,131 @@
+:root {
+  --font-family: "Oswald", sans-serif;
+  --second-family: "Archivo", sans-serif;
+  --color-orange: #f47521;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0b0b;
+  font-family: var(--second-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Шапка сайта (Растянута на весь экран) */
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header__container {
+  width: 100%;
+  /* Отступ 60px строго сверху и снизу по оранжевому маркеру макета */
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  position: relative; /* База для точного позиционирования меню */
+}
+
+/* 3. Логотип */
+.header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__logo svg {
+  display: block;
+  height: 38px;
+  width: 198px;
+  overflow: visible; /* Выпускает буквы S и E наружу из маски */
+}
+
+/* 4. Навигация и меню (ПИКСЕЛЬ В ПИКСЕЛЬ ПО МАРКЕРАМ FIGMA) */
+.header__nav {
+  position: absolute;
+  /* Меню начинается строго на 582px от левого края фрейма */
+  left: 582px;
+  /* Ограничиваем правый край на координате 1270px, задавая точную ширину контейнера */
+  width: calc(1270px - 582px); /* Ширина контейнера меню ровно 688px */
+}
+
+.header__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  /* Равномерно распределяем элементы внутри фрейма меню от HOME до CONTACT US */
+  justify-content: space-between;
+}
+
+.header__link {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 24px; /* Точная высота строки '24 Hug' из синего бейджа */
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding-left: 14px; /* Сдвиг текста относительно круга */
+}
+
+/* Жесткий оранжевый круг 40x40px */
+.header__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -8px; /* Вынос наверх на 8px для идеального центрирования круга */
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-orange);
+  border-radius: 50px;
+  z-index: -1;
+  display: none;
+}
+
+.header__link:hover::before {
+  display: block;
+}
+
+.header__link:hover {
+  color: #ffffff;
+}
+
+/* 5. Иконки действий (Прижаты к правому краю шапки) */
+.header__actions {
+  margin-left: auto; /* Автоматически уносит блок иконок в самый правый край */
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__action-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.header__action-btn:hover {
+  color: var(--color-orange);
+}

@@ -1,0 +1,300 @@
+.better {
+  background-color: var(--bg-color);
+}
+
+.better__container {
+  /* position: relative;
+  min-height: 1001px; */
+  width: min(1920px, 100%);
+}
+
+.better__content {
+  position: relative;
+  /* width: 100%; */
+  min-height: 1001px;
+}
+
+.better__title {
+  position: absolute;
+  top: 146px;
+  left: 352px;
+  z-index: 1;
+
+  /* margin: 0; */
+
+  /* display: flex;
+  gap: 12px; */
+
+  font-family: var(--main-font-family);
+  font-size: 120px;
+  line-height: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.better__title-light {
+  color: var(--main-color);
+}
+
+.better__title-accent {
+  color: var(--accent-color);
+}
+
+.better__info {
+  position: absolute;
+  top: 341px;
+  left: 352px;
+  z-index: 1;
+  /* width: 385px; */
+}
+
+.better__story,
+.better__mission {
+  margin: 0;
+}
+
+.better__mission {
+  margin-top: 40px;
+}
+
+.better__subtitle {
+  margin: 0 0 10px;
+
+  font-family: var(--main-font-family);
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--main-color);
+  line-height: normal;
+}
+
+.better__text {
+  margin: 0;
+
+  font-family: var(--second-font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.69;
+  color: #979797;
+}
+
+/* .better__button {
+  position: absolute;
+  top: 727px;
+  left: 352px;
+
+  border-left: 4px solid var(--main-color);
+  padding: 23px 61px;
+  width: 217px;
+
+  font-family: var(--main-font-family);
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 500;
+  color: var(--main-color);
+
+  background-color: var(--accent-color);
+
+  overflow: hidden;
+  z-index: 1;
+  transition:
+    color 0.3s ease,
+    border-left-color 0.3s ease,
+    box-shadow 0.3s ease;
+} */
+
+.better__button {
+  position: absolute;
+  top: 727px;
+  left: 352px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 213px;
+  padding: 23px 0;
+  border-left: 4px solid var(--main-color);
+  background-color: var(--accent-color);
+  font-family: var(--main-font-family);
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 500;
+  color: var(--main-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden; /* Прячем лазер за пределами кнопки */
+  transition: box-shadow 0.3s ease;
+}
+
+/* === КОСОЙ ЛАЗЕРНЫЙ ЛУЧ === */
+.better__button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px; /* Изначально замер слева за краем кнопки */
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-35deg);
+  z-index: 1;
+  pointer-events: none; /* Жесткая защита от мерцания: мышь игнорирует луч */
+}
+
+/* === СТИЛИ ПРИ НАВЕДЕНИИ (HOVER) === */
+.better__button:hover {
+  border-left: 4px solid var(--accent-color);
+  /* Включаем мягкое оранжевое неоновое облако */
+  box-shadow: 0 0 35px color-mix(in srgb, var(--accent-color) 70%, transparent);
+}
+
+/* Запускаем лазер по кругу каждые 3 секунды, пока мышь наведена */
+.better__button:hover::before {
+  animation: hover-laser-loop 2s infinite linear;
+}
+
+/* === ЛОГИКА ТРЁХСЕКУНДНОГО ЦИКЛА === */
+@keyframes hover-laser-loop {
+  0% {
+    left: -150px; /* Старт слева */
+  }
+  20% {
+    left: 150%; /* За первые 0.6 сек луч быстро пролетает направо */
+  }
+  100% {
+    left: 150%; /* Остальное время луч просто ждёт за правым краем до следующего цикла */
+  }
+}
+
+.better__decor-dotted {
+  position: absolute;
+  width: 767px;
+  height: 767px;
+  top: 117px;
+  right: 470px;
+}
+
+.better__slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 960px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.better__slides {
+  position: relative;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100%;
+  height: 100%;
+}
+
+.better__slide {
+  /* position: absolute;
+  inset: 0; */
+  position: relative; /* ИЗМЕНИЛИ: теперь относительное, чтобы внутренности позиционировались от него */
+  flex-shrink: 0; /* Важно: запрещаем слайдам сжиматься */
+  width: 100%; /* ИЗМЕНИЛИ: ширина слайда должна быть равна ширине видимой области (или меньше, если видны соседние) */
+  height: 100%;
+}
+
+/* .better__slide--product {
+  position: relative;
+} */
+
+.better__product-label-1 {
+  position: absolute;
+  top: 383px;
+  right: 700px;
+}
+
+.better__product-label-2 {
+  position: absolute;
+  top: 525px;
+  right: 700px;
+}
+
+.better__product-label-1 img,
+.better__product-label-2 img {
+  display: block;
+  width: 255px;
+  height: 142px;
+}
+
+.better__product {
+  position: absolute;
+  top: 143px;
+  right: 310px;
+}
+
+.better__product img {
+  display: block;
+  width: 476px;
+  height: auto;
+}
+
+.better__badge {
+  position: absolute;
+  top: 210px;
+  right: 243px;
+}
+
+.better__badge img {
+  display: block;
+  width: 210px;
+  height: auto;
+}
+
+.better__navigation {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 74px;
+  height: 218px;
+  top: 394px;
+  right: 106px;
+  z-index: 10;
+}
+
+.better__slider-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Для плавного скрытия под кругом */
+}
+
+/* Точка, над которой сейчас находится круг, становится невидимой */
+.better__slider-dot--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.better__slider-current {
+  position: absolute; /* Вырываем круг из общего потока флексов */
+  left: 0;
+  top: 0; /* Стартовая точка отсчета */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 74px;
+  height: 74px;
+  font-weight: 400;
+  font-size: 21px;
+  color: var(--main-color);
+  border: 5px solid var(--accent-color);
+  border-radius: 50%;
+
+  pointer-events: none; /* Чтобы круг не мешал кликать по скрытой под ним точке */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Плавное скольжение круга вверх/вниз */
+}

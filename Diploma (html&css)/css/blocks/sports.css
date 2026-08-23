@@ -1,0 +1,160 @@
+.sports__ticker {
+  display: flex;
+  align-items: center;
+  /* width: 100%; */
+  padding-top: 35px;
+  padding-bottom: 36px;
+  background-color: var(--secondary-color);
+  overflow: hidden;
+}
+
+.sports__ticker-wrapper {
+  display: flex;
+  width: max-content;
+  animation: ticker-move 10s linear infinite;
+}
+
+.sports__ticker:hover .sports__ticker-wrapper {
+  animation-play-state: paused;
+}
+
+.sports__ticker-line {
+  display: flex;
+  align-items: center;
+  gap: 82px;
+  padding-right: 82px;
+  will-change: transform;
+}
+
+.sports__ticker-line span {
+  position: relative;
+  font-family: var(--main-font-family);
+  font-size: 100px;
+  font-weight: 400;
+  color: var(--bg-color);
+  white-space: nowrap;
+  line-height: normal;
+}
+
+.sports__ticker-line span::after {
+  content: "";
+  position: absolute;
+
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  top: 50%;
+  right: 0;
+  transform: translate(48px, -50%);
+}
+
+@keyframes ticker-move {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.sports {
+  /* position: relative; */
+  width: 100%;
+}
+
+.sports__cards {
+  position: relative;
+  width: 100%;
+}
+
+.sports__cards-list {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sports__cards-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.sports__card {
+  display: block; /* Гарантирует правильное поведение ссылки */
+  height: 848px;
+  transition: transform 0.3s ease;
+}
+
+.sports__card-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.sports-card__action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  width: 100%;
+  padding-left: 56px;
+  padding-right: 68px;
+  box-sizing: border-box;
+  height: 144px;
+  background-color: var(--secondary-color);
+  border-right: 2px solid var(--bg-color);
+
+  position: relative; /* ОБЯЗАТЕЛЬНО: делаем рамкой для лазера */
+  overflow: hidden; /* ОБЯЗАТЕЛЬНО: прячем лазер, пока он за границами */
+}
+
+.sports__cards-item:last-child .sports-card__action {
+  border-right: none;
+}
+
+/* === КОСОЙ ЛАЗЕРНЫЙ ЛУЧ ДЛЯ КАРТОЧКИ === */
+.sports-card__action::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px; /* Спрятан слева наготове */
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-35deg);
+  z-index: 1;
+  pointer-events: none; /* Курсор игнорирует луч */
+}
+
+.card-action-title,
+.card-action-svg {
+  position: relative;
+  z-index: 2;
+}
+
+.sports__card:hover {
+  transform: translateY(-2px);
+}
+
+/* 1. Запускаем лазерный блик строго по нижней плашке при наведении */
+.sports__card:hover .sports-card__action::before {
+  left: 150%;
+  transition: left 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.sports__cards-item:hover .card-action-title {
+  color: var(--accent-color);
+}
+
+.sports__card:hover .card-action-svg {
+  --arrow-color: var(--accent-color);
+  transform: translateX(30px);
+}
