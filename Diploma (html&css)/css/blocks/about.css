@@ -3,10 +3,6 @@
   padding: 160px 332px 238px 284px;
 }
 
-input[name="about-tabs"] {
-  display: none;
-}
-
 .about__row {
   display: flex;
   justify-content: space-between;
@@ -56,18 +52,12 @@ input[name="about-tabs"] {
   opacity: 1;
 }
 
-#tab-pulse:checked ~ .about__row .about__tab-btn[for="tab-pulse"],
-#tab-story:checked ~ .about__row .about__tab-btn[for="tab-story"],
-#tab-approach:checked ~ .about__row .about__tab-btn[for="tab-approach"],
-#tab-plan:checked ~ .about__row .about__tab-btn[for="tab-plan"] {
+.about__tab-btn--active {
   color: var(--bg-color);
   opacity: 1;
 }
 
-#tab-pulse:checked ~ .about__row .about__tab-btn[for="tab-pulse"]::before,
-#tab-story:checked ~ .about__row .about__tab-btn[for="tab-story"]::before,
-#tab-approach:checked ~ .about__row .about__tab-btn[for="tab-approach"]::before,
-#tab-plan:checked ~ .about__row .about__tab-btn[for="tab-plan"]::before {
+.about__tab-btn--active::before {
   transform: translateY(-50%) scale(1);
 }
 
@@ -83,6 +73,15 @@ input[name="about-tabs"] {
   transition:
     opacity 0.4s ease,
     transform 0.4s ease;
+}
+
+.about__tab-content--active {
+  display: block;
+}
+
+.about__tab-content--animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about__text-group {
@@ -109,15 +108,6 @@ input[name="about-tabs"] {
   line-height: 1.69;
   color: var(--aux-color);
   margin-bottom: 50px;
-}
-
-#tab-pulse:checked ~ .about__row .content-pulse,
-#tab-story:checked ~ .about__row .content-story,
-#tab-approach:checked ~ .about__row .content-approach,
-#tab-plan:checked ~ .about__row .content-plan {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .about__counters {

@@ -1,0 +1,49 @@
+.promo__video {
+  position: relative;
+}
+
+.promo__poster {
+  display: block;
+}
+
+.promo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.promo__play-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 122px;
+  height: 122px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.promo__play-icon {
+  width: 34px;
+  height: 54px;
+  transform: translateX(49px);
+  transition: --play-icon-stroke 0.3s ease, --play-icon-fill 0.3s ease;
+}
+
+@media (any-hover: hover) {
+  .promo__play-btn:hover {
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+
+  .promo__play-btn:hover .promo__play-icon {
+    --play-icon-stroke: var(--accent-color);
+    /* --play-icon-fill: var(--accent-color); */
+  }
+}

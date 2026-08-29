@@ -43,6 +43,10 @@
         <path d="M0 12.4982H24.9965V8.92732H0V12.4982ZM0 21.4256H24.9965V17.8546H0V21.4256ZM0 0V3.57093H24.9965V0H0Z"
             fill="var(--search-color)" />
     </symbol>
+    <symbol id="cross" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6L18 18" stroke="var(--cross-color)" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </symbol>
     <symbol id="arrow" viewBox="0 0 21 21" fill="none">
         <path d="M0.999958 10.2829L19.565 10.2829" stroke="var(--arrow-color)" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" />
@@ -600,5 +604,9 @@
         <path
             d="M14.7266 0H5.27344C2.36572 0 0 2.36572 0 5.27344V14.7266C0 17.6343 2.36572 20 5.27344 20H14.7266C17.6343 20 20 17.6343 20 14.7266V5.27344C20 2.36572 17.6343 0 14.7266 0ZM16.4844 12.9688C16.4844 14.9072 14.9072 16.4844 12.9688 16.4844H7.03125C5.09277 16.4844 3.51562 14.9072 3.51562 12.9688V7.03125C3.51562 5.09277 5.09277 3.51562 7.03125 3.51562H12.9688C14.9072 3.51562 16.4844 5.09277 16.4844 7.03125V12.9688Z"
             fill="var(--social-icon-color)" />
+    </symbol>
+    <symbol id="play-icon" viewBox="0 0 37 57" fill="none">
+        <path d="M1.25 1.25L35.25 28.25L1.25 55.25V1.25Z" stroke="var(--play-icon-stroke)" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" fill="var(--play-icon-fill)" />
     </symbol>
 </svg>

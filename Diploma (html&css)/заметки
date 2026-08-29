@@ -177,3 +177,235 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+====
+<section class="about" id="about">
+  <div class="container about__container">
+    
+    <!-- Инпуты полностью удалены! -->
+    
+    <div class="about__row">
+      <div class="about__tabs-menu">
+        <!-- Первому табу сразу вешаем класс активности -->
+        <button type="button" class="about__tab-btn about__tab-btn--active" data-tab="pulse">Pulse</button>
+        <button type="button" class="about__tab-btn" data-tab="story">Our story</button>
+        <button type="button" class="about__tab-btn" data-tab="approach">Approach</button>
+        <button type="button" class="about__tab-btn" data-tab="plan">Our plan</button>
+      </div>
+      
+      <div class="about__content-box">
+        <!-- Первому блоку контента вешаем классы активности и анимации -->
+        <div class="about__tab-content about__tab-content--active about__tab-content--animate" id="about-pulse">
+          <div class="about__text-group">
+            <h3 class="about__content-title">BEST GYM</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+          <div class="about__text-group">
+            <h3 class="about__content-title">OUR PLAN</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+          <div class="about__text-group">
+            <h3 class="about__content-title">TECHNIQUE</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+        </div>
+
+        <div class="about__tab-content" id="about-story">
+          <div class="about__text-group">
+            <h3 class="about__content-title">OUR STORY TITLE</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+        </div>
+
+        <div class="about__tab-content" id="about-approach">
+          <div class="about__text-group">
+            <h3 class="about__content-title">OUR APPROACH</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+        </div>
+
+        <div class="about__tab-content" id="about-plan">
+          <div class="about__text-group">
+            <h3 class="about__content-title">DETAILED PLAN</h3>
+            <p class="about__text">Ac nec est ultrices varius morbi et non. Donec quam sed eget purus...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+====
+/* ==========================================================================
+   СЕКЦИЯ ABOUT (КОНТЕЙНЕР И РЯДЫ)
+   ========================================================================== */
+
+.about__container {
+  background-color: var(--secondary-color);
+  padding: 160px 332px 238px 284px;
+}
+
+.about__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about__tabs-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: auto;
+  padding-left: 65px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   КНОПКИ ПЕРЕКЛЮЧЕНИЯ ТАБОВ (КНОПКИ ВМЕСТО LABEL)
+   ========================================================================== */
+
+.about__tab-btn {
+  position: relative;
+  font-size: 100px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  width: max-content;
+  line-height: normal;
+  color: var(--bg-color);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+
+  /* Сброс дефолтных стилей кнопки браузера */
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+}
+
+/* Оранжевый декоративный круг за текстом */
+.about__tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -64px;
+  transform: translateY(-50%) scale(0);
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  z-index: -1;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.about__tab-btn:hover {
+  opacity: 1;
+}
+
+/* Состояние активной кнопки (управляется через JS) */
+.about__tab-btn--active {
+  color: var(--bg-color);
+  opacity: 1;
+}
+
+/* Появление круга у активной кнопки */
+.about__tab-btn--active::before {
+  transform: translateY(-50%) scale(1);
+}
+
+/* ==========================================================================
+   БЛОКИ С ТЕКСТОВЫМ КОНТЕНТОМ ТАБОВ
+   ========================================================================== */
+
+.about__content-box {
+  max-width: 468px;
+  margin-top: 25px;
+}
+
+.about__tab-content {
+  display: none; /* Скрыто по умолчанию */
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Показываем блок (display: block) через JS */
+.about__tab-content--active {
+  display: block;
+}
+
+/* Запуск плавной анимации появления (opacity и сдвиг вверх) */
+.about__tab-content--animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about__text-group {
+  margin-bottom: 35px;
+}
+
+.about__text-group:last-child {
+  margin-bottom: 0;
+}
+
+.about__content-title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--bg-color);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.about__text {
+  font-family: var(--second-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.69;
+  color: var(--aux-color);
+  margin-bottom: 50px;
+}
+
+/* ==========================================================================
+   БЛОК СЧЕТЧИКОВ / ПОКАЗАТЕЛЕЙ (COUNTERS)
+   ========================================================================== */
+
+.about__counters {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  border-top: 2px solid #000;
+}
+
+.about__counter-item {
+  text-align: center;
+  flex: 1;
+  padding-block: 132px 161px;
+}
+
+.about__counter-item:not(:last-child) {
+  border-right: 2px solid #000;
+}
+
+.about__counter-num {
+  display: block;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--bg-color);
+  margin-bottom: 12px;
+}
+
+.about__counter-desc {
+  display: block;
+  font-family: var(--second-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--bg-color);
+  line-height: 1.35;
+  text-transform: uppercase;
+  font-style: italic;
+}

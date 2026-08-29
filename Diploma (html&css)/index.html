@@ -13,10 +13,11 @@
       src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
       defer
     ></script>
+    <script src="./js/fslightbox.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
     <title>PULSE Fitness Center</title>
   </head>
-  <body>
+  <body class="page__body">
     <header class="header">
       <div class="header__container">
         <a
@@ -570,19 +571,30 @@
       </section>
       <section class="about" id="about">
         <div class="container about__container">
-          <input type="radio" name="about-tabs" id="tab-pulse" checked />
-          <input type="radio" name="about-tabs" id="tab-story" />
-          <input type="radio" name="about-tabs" id="tab-approach" />
-          <input type="radio" name="about-tabs" id="tab-plan" />
           <div class="about__row">
             <div class="about__tabs-menu">
-              <label for="tab-pulse" class="about__tab-btn">Pulse</label>
-              <label for="tab-story" class="about__tab-btn">Our story</label>
-              <label for="tab-approach" class="about__tab-btn">Approach</label>
-              <label for="tab-plan" class="about__tab-btn">Our plan</label>
+              <button
+                type="button"
+                class="about__tab-btn about__tab-btn--active"
+                data-tab="pulse"
+              >
+                Pulse
+              </button>
+              <button type="button" class="about__tab-btn" data-tab="story">
+                Our story
+              </button>
+              <button type="button" class="about__tab-btn" data-tab="approach">
+                Approach
+              </button>
+              <button type="button" class="about__tab-btn" data-tab="plan">
+                Our plan
+              </button>
             </div>
             <div class="about__content-box">
-              <div class="about__tab-content content-pulse">
+              <div
+                class="about__tab-content about__tab-content--active about__tab-content--animate"
+                id="about-pulse"
+              >
                 <div class="about__text-group">
                   <h3 class="about__content-title">BEST GYM</h3>
                   <p class="about__text">
@@ -610,7 +622,7 @@
                   </p>
                 </div>
               </div>
-              <div class="about__tab-content content-story">
+              <div class="about__tab-content" id="about-story">
                 <div class="about__text-group">
                   <h3 class="about__content-title">OUR STORY TITLE</h3>
                   <p class="about__text">
@@ -618,31 +630,31 @@
                     purus. Elementum sed malesuada senectus feugiat. At faucibus
                     morbi a neque ultricies. Nisl maecenas eget ultricies in
                     lobortis. Nec quam sed eget purus. Elementum sed malesuada
-                    senectus
+                    senectus...
                   </p>
                 </div>
               </div>
-              <div class="about__tab-content content-approach">
+              <div class="about__tab-content" id="about-approach">
                 <div class="about__text-group">
-                  <h3 class="about__content-title">OUR APPROACH</h3>
+                  <h3 class="about__content-title">APPROACH TITLE</h3>
                   <p class="about__text">
                     Ac nec est ultrices varius morbi et non. Donec quam sed eget
                     purus. Elementum sed malesuada senectus feugiat. At faucibus
                     morbi a neque ultricies. Nisl maecenas eget ultricies in
                     lobortis. Nec quam sed eget purus. Elementum sed malesuada
-                    senectus
+                    senectus...
                   </p>
                 </div>
               </div>
-              <div class="about__tab-content content-plan">
+              <div class="about__tab-content" id="about-plan">
                 <div class="about__text-group">
-                  <h3 class="about__content-title">DETAILED PLAN</h3>
+                  <h3 class="about__content-title">OUR PLAN TITLE</h3>
                   <p class="about__text">
                     Ac nec est ultrices varius morbi et non. Donec quam sed eget
                     purus. Elementum sed malesuada senectus feugiat. At faucibus
                     morbi a neque ultricies. Nisl maecenas eget ultricies in
                     lobortis. Nec quam sed eget purus. Elementum sed malesuada
-                    senectus
+                    senectus...
                   </p>
                 </div>
               </div>
@@ -1028,6 +1040,33 @@
           </svg>
         </a>
       </section>
+      <section class="promo" id="promo">
+        <div class="container promo__video">
+          <picture class="promo__poster">
+            <source srcset="./images/promo.webp" type="image/webp" />
+            <img
+              class="promo__img"
+              src="./images/promo.jpg"
+              width="1920"
+              height="815"
+              alt="A athletic woman doing abs crunches workout on a blue mat inside PULSE fitness center"
+              loading="lazy"
+            />
+          </picture>
+          <button
+            class="promo__play-btn"
+            title="Play video"
+            data-modal-button="promo-video"
+            data-modal-speed="300"
+            data-modal-src="ILcE-bS_K80"
+            aria-label="Watch promo video on YouTube"
+          >
+            <svg class="promo__play-icon">
+              <use href="./icons/sprite.svg#play-icon"></use>
+            </svg>
+          </button>
+        </div>
+      </section>
     </main>
     <footer class="footer" id="contact_us">
       <div class="container footer__container">
@@ -1119,9 +1158,49 @@
       <!-- 3. Нижняя линия -->
       <div class="container footer__bottom">
         <div class="footer__container">
-          <p class="footer__copyright">Copyright <span class="footer__copyright--bold">Doreativemarkettc</span>, All Rights Reserved</p>
+          <p class="footer__copyright">
+            Copyright
+            <span class="footer__copyright--bold">Doreativemarkettc</span>, All
+            Rights Reserved
+          </p>
         </div>
       </div>
     </footer>
+
+    <!-- <div class="modal">
+      <div class="modal__window" data-modal-window="promo-video">
+        <button
+          class="modal__close"
+          aria-label="Закрыть"
+          title="Закрыть"
+          data-modal-close
+        >
+          <svg width="24" height="24">
+            <use href="./icons/sprite.svg#cross"></use>
+          </svg>
+        </button>
+        <div class="modal__content">
+        </div>
+      </div>
+    </div> -->
+
+    <div class="modal" id="promo-video" aria-hidden="true">
+      <div class="modal__overlay" data-modal-close>
+        <div class="modal__window">
+          <button
+            type="button"
+            class="modal__close"
+            aria-label="Закрыть"
+            title="Close"
+            data-modal-close
+          >
+            <svg width="24" height="24">
+              <use href="./icons/sprite.svg#cross"></use>
+            </svg>
+          </button>
+          <div class="modal__content"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

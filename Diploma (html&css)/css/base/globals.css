@@ -10,6 +10,10 @@ body {
   background-color: var(--bg-color);
 }
 
+.page__body--no-scroll {
+  overflow-y: hidden;
+}
+
 .container {
   width: min(var(--container-width), calc(100% - var(--container-padding) * 2));
   margin-inline: auto;
@@ -30,8 +34,8 @@ body {
   width: 21px;
   height: 21px;
   transition:
-    --arrow-color 1s ease,
-    transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+    --arrow-color 0.5s ease,
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .fulltimetable {

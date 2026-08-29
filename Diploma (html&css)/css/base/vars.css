@@ -9,6 +9,7 @@
   --bg-color: #141414;
   --secondary-color: #e3e3de;
   --aux-color: #979797;
+  --overlay: linear-gradient(rgba(30, 30, 30, 0.9), #000 1810%);
 
   /* container */
   --container-width: 1920px;
@@ -41,6 +42,24 @@
 }
 
 @property --social-icon-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fff;
+}
+
+@property --play-icon-stroke {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fff;
+}
+
+@property --play-icon-fill {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --cross-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #fff;
