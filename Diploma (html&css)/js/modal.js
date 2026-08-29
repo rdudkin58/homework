@@ -33,7 +33,7 @@ console.log("Считанный ID видео:", videoId);
 
 if (videoContainer && videoId) {
   // Внимание на косые кавычки ` ` и синтаксис ${}
-  const embedUrl = `https://youtube.com/embed/${videoId.trim()}?autoplay=1&rel=0`;
+  const embedUrl = `https://youtube.com/embed/${videoId.trim()}?autoplay=1&rel=0&origin=${window.location.origin}`;
   
   console.log("Итоговая ссылка для iframe:", embedUrl);
 
